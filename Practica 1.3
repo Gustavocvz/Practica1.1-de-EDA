@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int B[3][2][4];
+    int i, j, k;
+    
+
+    printf("Ingrese valores enteros al arreglo\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 2; j++) {
+            for (k = 0; k < 4; k++) {
+                printf("\ni: %d,  j: %d, k: %d: ", i + 1, j + 1, k + 1);
+                scanf("%d", &B[i][j][k]);
+            }
+        }
+    }
+
+    int* ap = &B[i][j][k];
+    printf("\n\nLas direcciones de memoria de los elementos son:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 2; j++) {
+            for (k = 0; k < 4; k++) {
+                printf("\nLa direccion de memoria para [i: %d, j: %d, k: %d] es: %p", i + 1, j + 1, k + 1, ap);
+                ap++;
+            }
+        }
+    }
+    printf("\n\nLa direccion de memoria del arreglo es: %p", &B);
+    printf("\n");
+
+    return 0;
+}
