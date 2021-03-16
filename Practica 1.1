@@ -1,26 +1,38 @@
+//Equipo 5, practica 1, ejercicio 1//
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>     //Declaramos las librerias//
 
-int main()
+int main()          //Ejecutamos el punto de partida// 
 {
-    int A[10];
+    int A[10];      //Conforme al ejercicio del inciso a), declaramos el entero y un contador//
     int i;
     
-    printf("Por favor ingrese valores enteros al arreglo\n");
-    for (i = 0; i < 10; i++)
+    printf("Por favor ingrese valores enteros al arreglo\n");       //Solicitamos los valores que seran el 
+    for (i = 0; i < 10; i++)                                        //contenido de los arreglos 10 veces en un for//
     {
-        printf("\nElemento %d: ", i);
+        printf("\nElemento %d: ", i);                               
         scanf("%d", &A[i]);
     }
     
     printf("\n\nLas direcciones de memoria de los elementos son:\n");
-    for (i = 0; i < 10; i++)
-    {
-        int* ap = &A[i];
-        printf("\nLa direccion de memoria para el %d elemento [%d] es: %p", i, A[i], &A[i]);
-    }
-    printf("\n\nLa direccion de memoria del arreglo es: %p\n", &A);
+    for (i = 0; i < 10; i++)              //Damos los arreglos con su contenido y dirección en un for 10 veces//
+    {                                                               
+        int* ap = &A[i];                  //En este apartado declaramos el apuntador tipo entero//
+        printf("\nLa direccion de memoria para el %d elemento [%d] es: %p", *ap, i, ap); //*ap indica contenido //
+    }                                                                                    //*i indica el contador //
+                                                                                         //ap ladireccion de memoria //
+    
+    printf("\n Reconfirmamos la memoria de los elementos :\n");
+
+    for (i = 0; i < 10; i++)              //Damos los arreglos con su contenido y dirección en un for 10 veces//
+    {                                                               
+        int* ap = &A[i];                  //En este apartado declaramos lo mismo que el anterior pero sin usar el apuntaodr/
+        printf("\nLa direccion de memoria para el %d elemento [%d] es: %p", A[i], i, &A[i] ); 
+    }     
+
+    printf("\n\nLa direccion de memoria del arreglo es: %p\n", &A); //*Indica la dirección de memoria del cual derivan los arreglos//
     printf("\n");
 
-    return 0;
+    system("PAUSE");
+    return 0; //Finaliza el programa//
 }
