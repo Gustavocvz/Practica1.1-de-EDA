@@ -1,33 +1,52 @@
+//Equipo 5, practica 1, ejercicio 3//
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //Declaramos las bibliotecas//
 
-int main() {
+int main()      //Ejecutamos el punto de partida//
+{                    
     int B[3][2][4];
-    int i, j, k;
-    
+    int i=0, j=0, k=0;
+    int *ap = &B[i][j][k];     //Declaramos los enteros, el contador y por ultimo el arreglo//
 
-    printf("Ingrese valores enteros al arreglo\n");
-    for (i = 0; i < 3; i++) {
+    printf("Ingrese valores enteros al arreglo\n"); //Solicitamos los valores que seran el contenido de los arreglos // 
+    for (i = 0; i < 3; i++) {                       
         for (j = 0; j < 2; j++) {
             for (k = 0; k < 4; k++) {
-                printf("\ni: %d,  j: %d, k: %d: ", i + 1, j + 1, k + 1);
-                scanf("%d", &B[i][j][k]);
+                printf("\ni: %d,  j: %d, k: %d: ", i + 1, j + 1, k + 1); //Le ponemos +1 a cada variable para que no indique//
+                scanf("%d", &B[i][j][k]);                                // columna y fila 0//
             }
         }
     }
 
-    int* ap = &B[i][j][k];
-    printf("\n\nLas direcciones de memoria de los elementos son:\n");
+    printf("\n\nLas direcciones de memoria de los elementos son:\n"); //Damos los arreglos con su contenido//
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 2; j++) {
             for (k = 0; k < 4; k++) {
-                printf("\nLa direccion de memoria para [i: %d, j: %d, k: %d] es: %p", i + 1, j + 1, k + 1, ap);
-                ap++;
+                printf("\nLa direccion de memoria de %d para [i: %d, j: %d, k: %d] es: %p",*ap, i + 1, j + 1, k + 1, ap);
+                ap++; //el apuntador lo vamos sumando conforme cambia continuamente cada arreglo // 
+                //*ap indica contenido //
+                //*i indica el contador //
+                //ap ladireccion de memoria //
             }
         }
     }
-    printf("\n\nLa direccion de memoria del arreglo es: %p", &B);
+
+    printf("\nReconfirmamos direcciones::\n"); //En este apartado declaramos lo mismo que el anterior pero sin usar el apuntaodr
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 2; j++) {
+            for (k = 0; k < 4; k++) {
+                printf("\nLa direccion de memoria de %d para [i: %d, j: %d, k: %d] es: %p",B[i][j][k], i + 1, j + 1, k + 1, &B[i][j][k]);
+                ap++;//el apuntador lo vamos sumando conforme cambia continuamente cada arreglo // 
+                //*ap indica contenido //
+                //*i indica el contador //
+                //ap ladireccion de memoria //
+            }
+        }
+    }
+
+    printf("\n\nLa direccion de memoria del arreglo es: %p", &B); //*Indica la dirección de memoria del cual derivan los arreglos//
     printf("\n");
-
-    return 0;
+    
+    system("PAUSE");
+    return 0; //Finaliza el programa//
 }
